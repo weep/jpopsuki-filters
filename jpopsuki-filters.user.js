@@ -8,7 +8,7 @@
 // @downloadURL  https://raw.githubusercontent.com/weep/jpopsuki-filters/master/jpopsuki-filters.user.js
 // @match        http://jpopsuki.eu/artist.php*
 // @grant        none
-// ==/UserScript==	
+// ==/UserScript==
 
 (function() {
     'use strict';
@@ -35,7 +35,7 @@
             af_media.value = filters.af_media;
             resolve();
         });
-    };
+    }
 
     function SetFilters() {
         var filters = {
@@ -45,7 +45,7 @@
         };
         console.log("set filters", filters);
         window.localStorage.setItem(localStorageKey, JSON.stringify(filters));
-    };
+    }
 
     function CreateButton(text, context, onclick) {
         var button = document.createElement("input");
@@ -54,5 +54,5 @@
         button.onclick = onclick;
 
         context.appendChild(button);
-    };
+    }
 })();

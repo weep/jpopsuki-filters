@@ -22,19 +22,19 @@
 
     CreateButton("Save filters", filters, SetFilters);
 
-    GetFilters().then(function(){
+    GetFilters().then(function() {
         artist_filter();
     });
 
     function GetFilters() {
-        return new Promise(function(resolve, reject){
+        return new Promise(function(resolve, reject) {
             var filters = JSON.parse(window.localStorage.getItem("customjpopfilter"));
             af_format.value = filters.af_format;
             af_bitrate.value = filters.af_bitrate;
             af_media.value = filters.af_media;
             resolve();
         });
-    }
+    };
 
     function SetFilters() {
         var filters = {
@@ -46,7 +46,7 @@
         window.localStorage.setItem("customjpopfilter", JSON.stringify(filters));
     }
 
-    function CreateButton(text, context, onclick){
+    function CreateButton(text, context, onclick) {
         var button = document.createElement("input");
         button.type = "button";
         button.value = text;

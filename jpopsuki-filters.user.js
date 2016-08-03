@@ -41,7 +41,7 @@
             af_format: af_format.value,
             af_bitrate: af_bitrate.value,
             af_media: af_media.value
-        }
+        };
         console.log("set filters", filters);
         window.localStorage.setItem("customjpopfilter", JSON.stringify(filters));
     }
@@ -53,5 +53,5 @@
         button.onclick = onclick;
 
         context.appendChild(button);
-    }
+    };
 })();

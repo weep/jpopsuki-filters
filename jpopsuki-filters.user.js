@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         jpopsuki filter
 // @namespace    http://weep.se/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Weep
 // @updateURL	 https://raw.githubusercontent.com/weep/jpopsuki-filters/master/jpopsuki-filters.meta.js
@@ -12,6 +12,7 @@
 
 (function() {
     'use strict';
+	var localStorageKey = "customjpopfilter";
 
     // Your code here...
     var filters = document.querySelector(".artist_filter");
@@ -28,7 +29,7 @@
 
     function GetFilters() {
         return new Promise(function(resolve, reject) {
-            var filters = JSON.parse(window.localStorage.getItem("customjpopfilter"));
+            var filters = JSON.parse(window.localStorage.getItem(localStorageKey));
             af_format.value = filters.af_format;
             af_bitrate.value = filters.af_bitrate;
             af_media.value = filters.af_media;
@@ -43,7 +44,7 @@
             af_media: af_media.value
         };
         console.log("set filters", filters);
-        window.localStorage.setItem("customjpopfilter", JSON.stringify(filters));
+        window.localStorage.setItem(localStorageKey, JSON.stringify(filters));
     };
 
     function CreateButton(text, context, onclick) {
